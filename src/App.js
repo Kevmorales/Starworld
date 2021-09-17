@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import Loading from './Loading'
+import People from './People'
+
+const api = 'https://swapi.dev/api/people/?format=json';
+
 
 function App() {
+const [loading,setLoading]= useState(true);
+const [people,setPeople]= useState([]);
+
+
+const fetchPeople = async () => {
+
+  setLoading(true);
+
+  try {
+    const response = await fetch(api);
+    const data = await response.json();
+    setLoading(false);
+    setPeople(data.results);
+    
+  } catch (error) {
+    setLoading(false);
+    console.log(error);
+  }
+  
+  
+
+};
+useEffect(()=>{
+fetchPeople();
+
+},[]);
+
+ 
+if (loading) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  
+    <Loading />
+
+  )
+};
+
+
+
+
+  return (
+  
+  <main>
+    
+  <People data={people}/>
+    
+    </main>
+
+  ); 
 }
 
-export default App;
+export default App
