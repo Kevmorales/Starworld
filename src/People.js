@@ -8,7 +8,7 @@ export default function People({data}) {
       {data.map((people, i) => {
 
 return (
-    <Person key={people.i} {...people} />
+    <Person key={i} {...people}/>
       )
       })}
     </div>
