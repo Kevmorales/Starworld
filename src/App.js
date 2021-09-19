@@ -5,6 +5,7 @@ import People from './People'
 function App() {
   const [peoples,setPeoples]= useState([]);
   const [loading,setLoading]= useState(true);
+  const [images, setImages] = useState([]);
 
   const fetchPeople = async () => {
 
@@ -33,9 +34,28 @@ function App() {
   setPeoples(allPeople)
 }
 
+const fetchImages = async () => {
+
+  setLoading(true);
+  let charImages=[""];
+
+  try {
+      const response = await fetch(`https://akabab.github.io/starwars-api/api/all.json`);
+      const characters = await response.json();
+      charImages.push(...characters)
+  } catch (error) { 
+    setLoading(false);
+      // const charImages = characters.map((character) => character.image);
+  }
+      setImages(charImages)
+  
+}   
+
 
   useEffect(()=>{
     fetchPeople()
+    fetchImages()
+    
   },[])
 
   if (loading) {
@@ -51,12 +71,13 @@ function App() {
   
   <main>
 
-<People data={peoples} />
+<People data={peoples} images={images}/>
 
-  
     </main>
 
 ); 
+
+
 }
 
 export default App
@@ -74,72 +95,3 @@ export default App
 
 
 
-
-
-
-
-
-
-
-
-
-// import React, { useState, useEffect } from 'react'
-// import Loading from './Loading'
-// import People from './People'
-
-
-
-
-
-
-
-// function App() {
-// const [loading,setLoading]= useState(true);
-// const [people,setPeople]= useState([]);
-
-// const fetchPeople = async () => {
-  
-//   setLoading(true);
-    
-//     try {
-//       const response = await fetch('https://swapi.dev/api/people/?page=1&format=json');
-//       const data = await response.json();
-//       setLoading(false);
-//       setPeople(data.results);
-//       console.log(data);
-
-//     } catch (error) {
-//       setLoading(false);
-//       console.log(error);
-//     }
-
-// }
-// useEffect(()=>{
-// fetchPeople();
-
-// },[]);
-
- 
-// if (loading) {
-//   return (
-  
-//     <Loading />
-
-//   )
-// };
-
-
-
-
-//   return (
-  
-//   <main>
-    
-//   <People data={people} />
-  
-//     </main>
-
-//   ); 
-// }
-
-// export default App
