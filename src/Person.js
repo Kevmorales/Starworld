@@ -1,4 +1,5 @@
 import React from 'react';
+import { Carousel } from '@trendyol-js/react-carousel';
 
 
 
@@ -7,7 +8,6 @@ const Person = ({name,height,gender,image,eye_color}) => {
   
 
   
-
   
   return (
   
@@ -31,7 +31,7 @@ const Person = ({name,height,gender,image,eye_color}) => {
       </footer>
 
   </article>
-  
+ 
 
 );
 };

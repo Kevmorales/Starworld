@@ -79,9 +79,10 @@ const fetchImages = async () => {
     
   <main>
 
+        
+    
 
 <People data={peoples} images={images}/>
-
   </main>
 
 ); 
