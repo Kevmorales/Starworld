@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react'
 import Loading from './Loading'
 import People from './People'
 
+
 function App() {
   const [peoples,setPeoples]= useState([]);
   const [loading,setLoading]= useState(true);
   const [images, setImages] = useState([]);
+  
+  
+  
 
   const fetchPeople = async () => {
 
@@ -32,7 +36,11 @@ function App() {
 
   }
   setPeoples(allPeople)
+
+  
 }
+
+
 
 const fetchImages = async () => {
 
@@ -56,6 +64,7 @@ const fetchImages = async () => {
     fetchPeople()
     fetchImages()
     
+    
   },[])
 
   if (loading) {
@@ -66,14 +75,14 @@ const fetchImages = async () => {
    )
    };
 
-
   return (
-  
+    
   <main>
+
 
 <People data={peoples} images={images}/>
 
-    </main>
+  </main>
 
 ); 
 

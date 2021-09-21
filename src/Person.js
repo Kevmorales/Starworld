@@ -2,12 +2,17 @@ import React from 'react';
 
 
 
-
 const Person = ({name,height,gender,image,eye_color}) => {
   
   
+
+  
+
+  
   return (
   
+    
+
   <article className="single-tour">
     
     <img src={image} alt={name} />
@@ -19,12 +24,14 @@ const Person = ({name,height,gender,image,eye_color}) => {
       <h4 className="tour-price"> Eye Color:{eye_color}</h4>
       
       
+      
       </div> 
 
       
       </footer>
 
   </article>
+  
 
 );
 };
