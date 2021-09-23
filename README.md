@@ -1,3 +1,22 @@
+#  StarWars or Starworld ? 👀
+Found this worktest https://www.notion.so/TA-Frontend-Developer-Assignment-ad8091f958384b8e87ff93533d6a0c19 where the mission was to create a Star Wars application in React that shows different Starwars Characters and info about them
+
+I did this to improve my skills.
+ 
+## Todo
+* Styling Styling Styling
+* Add some magic functions
+
+### Resources
+  * This api to get character-images -
+    * https://akabab.github.io/starwars-api/
+  * This api to get character-data
+    * http://swapi.dev/api/people
+  
+## Authors
+[Kevin Morales](https://github.com/kevmorales)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
